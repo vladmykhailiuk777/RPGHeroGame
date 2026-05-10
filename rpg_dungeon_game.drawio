@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Страница-1" id="z-d11CUoaW5h9eJ9S4zX">
+    <mxGraphModel dx="1467" dy="812" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;whiteSpace=wrap;html=1;" value="Entity" vertex="1">
+          <mxGeometry height="140" width="260" x="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="2" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ name: string&lt;br&gt;+ hp: int&lt;br&gt;+ maxHp: int&lt;br&gt;+ atk: int&lt;br&gt;+ def: int" vertex="1">
+          <mxGeometry height="80" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="2" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="260" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="2" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ isAlive(): bool — повертає true якщо hp &gt; 0" vertex="1">
+          <mxGeometry height="26" width="260" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;whiteSpace=wrap;html=1;" value="Player" vertex="1">
+          <mxGeometry height="360" width="310" x="160" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="10" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ x: int — позиція на карті (стовпець)&lt;br&gt;+ y: int — позиція на карті (рядок)&lt;br&gt;+ level: int — поточний рівень (старт: 1)&lt;br&gt;+ xp: int — поточний досвід (старт: 0)&lt;br&gt;+ gold: int — кількість золота (старт: 0)&lt;br&gt;+ luck: int — шанс втечі 0-9 (старт: 5)&lt;br&gt;+ inventory: vector&lt;Item&gt; — макс. 6 предметів" vertex="1">
+          <mxGeometry height="130" width="310" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="10" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="310" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="10" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ addXP(amount: int): void&lt;br&gt;  — додає XP, при xp&gt;=100: level++,&lt;br&gt;  — xp -= 100, maxHp+20, hp=maxHp,&lt;br&gt;  — atk+5, def+2&lt;br&gt;&lt;br&gt;+ pickItem(item: Item): bool&lt;br&gt;  — додає Item в inventory якщо &lt; 6&lt;br&gt;&lt;br&gt;+ useItem(index: int): string&lt;br&gt;  — heal: hp += value (не вище maxHp)&lt;br&gt;  — atk: atk += value (назавжди)&lt;br&gt;  — def: def += value (назавжди)&lt;br&gt;  — видаляє предмет з inventory" vertex="1">
+          <mxGeometry height="196" width="310" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="s27hq7gvstUx9s-cxdGm-108" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;whiteSpace=wrap;html=1;" value="Enemy" vertex="1">
+          <mxGeometry height="190" width="310" x="900" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="20" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="(наслідує name, hp, maxHp, atk, def від Entity)" vertex="1">
+          <mxGeometry height="34" width="310" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="20" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="310" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="20" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ «static» spawn(level: int): Enemy&lt;br&gt;  — level 1 → Скелет   hp:45 atk:12 def:2&lt;br&gt;  — level 2 → Орк       hp:80 atk:18 def:5&lt;br&gt;  — level 3+ → Темний Лицар hp:150 atk:28 def:10" vertex="1">
+          <mxGeometry height="122" width="310" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="s27hq7gvstUx9s-cxdGm-111" edge="1" parent="1" source="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;whiteSpace=wrap;html=1;" value="Item" vertex="1">
+          <mxGeometry height="210" width="310" x="160" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="31" parent="30" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ name: string — назва предмета&lt;br&gt;+ type: string — heal | atk | def&lt;br&gt;+ value: int — сила ефекту&lt;br&gt;+ symbol: string — символ на карті" vertex="1">
+          <mxGeometry height="80" width="310" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="32" parent="30" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="310" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="33" parent="30" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="Можливі предмети (itemTable):&lt;br&gt;  — Зілля лікування  heal  +40 hp&lt;br&gt;  — Отрута ельфів     heal  +70 hp&lt;br&gt;  — Камінь сили       atk   +8 atk&lt;br&gt;  — Щит воїна         def   +6 def" vertex="1">
+          <mxGeometry height="96" width="310" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="s27hq7gvstUx9s-cxdGm-110" edge="1" parent="1" source="40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;whiteSpace=wrap;html=1;" value="GameEngine" vertex="1">
+          <mxGeometry height="480" width="360" x="540" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="41" parent="40" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="- map: vector&lt;string&gt; — реальна карта 8x18&lt;br&gt;- fog: vector&lt;string&gt; — туман (? = не видно)&lt;br&gt;- hero: Player — об&#39;єкт гравця&lt;br&gt;- currentLevel: int — поточний рівень&lt;br&gt;- running: bool — чи продовжується гра&lt;br&gt;- itemTable: vector&lt;Item&gt; — пул предметів" vertex="1">
+          <mxGeometry height="110" width="360" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="42" parent="40" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="360" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="43" parent="40" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="- generateLevel(): void&lt;br&gt;  — заповнює карту стінами (#)&lt;br&gt;  — вирізає прохід, ставить X в кут&lt;br&gt;  — розкидає E E $ ^ I I випадково&lt;br&gt;&lt;br&gt;- combat(e: Enemy): void&lt;br&gt;  — цикл: герой б&#39;є → ворог б&#39;є&lt;br&gt;  — шкода = atk - def + rand(0..4)&lt;br&gt;  — втеча: rand(0..9) &lt; luck → успіх&lt;br&gt;  — перемога: +40 XP, +20 gold&lt;br&gt;&lt;br&gt;- showInventory(): void&lt;br&gt;  — показує список Items, викликає useItem()&lt;br&gt;&lt;br&gt;- pickupItem(): void&lt;br&gt;  — бере випадковий Item з itemTable&lt;br&gt;  — додає якщо inventory &lt; 6&lt;br&gt;&lt;br&gt;+ draw(): void — малює карту з туманом&lt;br&gt;+ update(): void — читає W/A/S/D/I/Q&lt;br&gt;+ isRunning(): bool&lt;br&gt;+ showGameOver(): void" vertex="1">
+          <mxGeometry height="336" width="360" y="144" as="geometry" />
+        </mxCell>
+        <mxCell id="60" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;whiteSpace=wrap;html=1;" value="Легенда карти" vertex="1">
+          <mxGeometry height="230" width="290" x="960" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="61" parent="60" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="290" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="62" parent="60" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="@  — гравець (поточна позиція)&lt;br&gt;#  — стіна (непрохідна клітинка)&lt;br&gt;.  — підлога (порожня клітинка)&lt;br&gt;?  — туман війни (не досліджено)&lt;br&gt;E  — ворог → запускає combat()&lt;br&gt;$  — золото → +50 gold&lt;br&gt;^  — пастка → -20 hp&lt;br&gt;I  — предмет → pickupItem()&lt;br&gt;X  — вихід → currentLevel++, новий рівень&lt;br&gt;&lt;br&gt;Туман: відкривається в радіусі 1 клітинки&lt;br&gt;Герой стартує завжди в позиції x=1 y=1&lt;br&gt;Вихід X завжди в правому нижньому куті" vertex="1">
+          <mxGeometry height="196" width="290" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="70" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;whiteSpace=wrap;html=1;" value="Система XP і рівнів" vertex="1">
+          <mxGeometry height="170" width="310" x="160" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="71" parent="70" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="310" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="72" parent="70" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="Джерело XP: лише перемога в бою (+40)&lt;br&gt;Поріг рівня: 100 XP&lt;br&gt;Лишок XP переноситься на наступний рівень&lt;br&gt;  Приклад: 80 XP + 40 = 120 → level++, лишок 20&lt;br&gt;&lt;br&gt;При підвищенні рівня:&lt;br&gt;  maxHp + 20, hp = maxHp (повне відновлення)&lt;br&gt;  atk + 5&lt;br&gt;  def + 2" vertex="1">
+          <mxGeometry height="136" width="310" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="80" parent="1" style="swimlane;fontStyle=1;align=center;startSize=26;whiteSpace=wrap;html=1;" value="Бій" vertex="1">
+          <mxGeometry height="250" width="360" x="1100" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="81" parent="80" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="360" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="82" parent="80" style="text;strokeColor=none;fillColor=none;align=left;spacingLeft=6;whiteSpace=wrap;html=1;" value="Тригер: гравець наступає на клітинку E&lt;br&gt;&lt;br&gt;Хід гравця — три варіанти:&lt;br&gt;  [1] Атака: pDmg = max(1, atk - e.def + rand(0..4))&lt;br&gt;  [2] Інвентар: відкрити і використати Item&lt;br&gt;  [3] Втеча: rand(0..9) &lt; luck → успіх, інакше&lt;br&gt;      hero.hp -= e.atk / 2&lt;br&gt;&lt;br&gt;Хід ворога (якщо живий після атаки гравця):&lt;br&gt;  eDmg = max(1, e.atk - hero.def + rand(0..2))&lt;br&gt;&lt;br&gt;Кінець бою:&lt;br&gt;  Перемога → +40 XP, +20 gold, cell = &#39;.&#39;&lt;br&gt;  Поразка  → hero.isAlive() == false → GameOver" vertex="1">
+          <mxGeometry height="216" width="360" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="100" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeWidth=2;" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="101" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeWidth=2;" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
